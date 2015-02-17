@@ -4,8 +4,9 @@
 		waitTime: 1000,
 		longWaitTime: 5000,
 		maxScrollTop: 10000000,
-		basicReply: ["oh", "okay", "oh okay", "okay ok", "mmm", "lol"],
-		smiley: ["", "", "", "", ":)", ":)", ":D"]
+		basicReply: ["oh", "okay", "oh okay", "okay ok"],
+		expressiveReply: ["mmm", "hmm", "lol", "nice", "awesome", "super", "semma", "wow", "great", "it's okay", "sorry abt that :|"],
+		smiley: ["", "", "", "", "", ":)", ":)", ":D"]
 	};
 
 	window.onload = function(){
@@ -96,7 +97,10 @@
 			else
 				replyText = "good, i guess...";
 		else
-			replyText = config.basicReply[Math.floor(Math.random()*config.basicReply.length)] + ' ' + config.smiley[Math.floor(Math.random()*config.smiley.length)]
+			if(Math.floor(Math.random()*10) > 2)
+				replyText = config.basicReply[Math.floor(Math.random()*config.basicReply.length)];
+			else
+				replyText = config.expressiveReply[Math.floor(Math.random()*config.expressiveReply.length)] + ' ' + config.smiley[Math.floor(Math.random()*config.smiley.length)]
 		insertChat(replyText, 1);
 		beep(2);
 	}
