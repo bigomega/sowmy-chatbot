@@ -1,4 +1,10 @@
 (function(){
+
+	var config = {
+		waitTime: 1000,
+		maxScrollTop: 10000000
+	};
+
 	window.onload = function(){
 		initialiseChatBot();
 		var d = new Date();
@@ -8,13 +14,27 @@
 	};
 
 	var initialiseChatBot = function(){
+		var waitFlag, text = "";
 		document.getElementById('input').onkeyup = function(event){
 			if(event.keyCode != 13)
 				return;
+			if(waitFlag)
+				text += this.value;
+			else
+				text = this.value	;
+			clearTimeout(waitFlag);
+			waitFlag = setTimeout(function(){
+				if(waitFlag)
+					reply(text);
+			}, config.waitTime);
 			insertChat(this.value, 0);
 			beep(1);
 			this.value = "";
-		}
+
+		};
+		document.getElementsByClassName('close')[0].onclick = function(event){
+			window.location = "http://bharathraja.in/"
+		};
 	};
 
 	var beep = function(n){
@@ -41,5 +61,11 @@
 				<div class="' + (side ? "left" : "right") + '">'+ dummy.innerHTML +'</div>\
 			</div>\
 		';
+		document.getElementsByClassName('chat-area')[0].scrollTop = config.maxScrollTop;
+	}
+
+	var reply = function(text){
+		insertChat("okay", 1);
+		beep(2);
 	}
 })();
