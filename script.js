@@ -31,9 +31,9 @@
 				}, config.longWaitTime);
 				return;
 			}
-			if(waitFlag)
-				text += ". " + this.value;
-			else
+			// if(waitFlag)
+			// 	text += ". " + this.value;
+			// else
 				text = this.value	;
 			waitFlag = setTimeout(function(){
 				if(waitFlag){
