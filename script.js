@@ -34,7 +34,7 @@
 			// if(waitFlag)
 			// 	text += ". " + this.value;
 			// else
-				text = this.value	;
+				text = this.value;
 			waitFlag = setTimeout(function(){
 				if(waitFlag){
 					reply(text);
@@ -88,7 +88,7 @@
 			beep(2);
 			return;
 		}
-		if(/^[^a-zA-Z]*(hey|hel+o)[^a-zA-Z]*$/.test(text))
+		if(/^[^a-zA-Z]*(hey|hel+o|hi+)[^a-zA-Z]*$/.test(text))
 			replyText = "hey";
 		else if(/(wha+t'?s+\s*up|wuz+up)/.test(text))
 			replyText = "Nothing much";

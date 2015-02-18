@@ -148,6 +148,7 @@ input{
 	margin-bottom: 10px;
 }
 .left{
+	min-height: 13px;
 	background: #E5E5EA;
 	display: inline-block;
 	padding: 5px 15px;
@@ -164,6 +165,7 @@ input{
 	bottom: 0px;
 }
 .right{
+	min-height: 13px;
 	background: #00CC47;
 	display: inline-block;
 	padding: 5px 15px;
