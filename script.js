@@ -6,7 +6,8 @@
 		maxScrollTop: 10000000,
 		basicReply: ["oh", "okay", "oh okay", "okay ok"],
 		expressiveReply: ["mmm", "hmm", "lol", "nice", "awesome", "super", "semma", "wow", "great", "it's okay", "sorry abt that :|"],
-		smiley: ["", "", "", "", "", ":)", ":)", ":D"]
+		smiley: ["", "", "", "", "", ":)", ":)", ":D"],
+		randomWords: ["pikachu", "hordor", "the weather", "bangalore", "gryffindor", "jackie chan", "vampire", "zombie", "ferrari", "hercules", "zeus", "compiler", "dota", "machines", "kamal"]
 	};
 
 	window.onload = function(){
@@ -91,6 +92,11 @@
 			replyText = "hey";
 		else if(/(wha+t'?s+\s*up|wuz+up)/.test(text))
 			replyText = "Nothing much";
+		else if(/^(what|how|where|why|when|is|are)|\?$/.test(text))
+			if(/^why/.test(text))
+				replyText = "Because i'm Batman...";
+			else
+				replyText = "I dunno... " + (Math.floor(Math.random()*10) < 4 ? config.randomWords[Math.floor(Math.random()*config.randomWords.length)] + "?" : "");
 		else if(/ho?w('re)?/.test(text))
 			if(/\s+(u|you)\??/.test(text))
 				replyText = "I'm good";
