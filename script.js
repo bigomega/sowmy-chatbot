@@ -21,6 +21,8 @@
 	var initialiseChatBot = function(){
 		var waitFlag, text = "";
 		document.getElementById('input').onkeyup = function(event){
+			if(event.keyCode == 13 && this.value == "")
+				return;
 			clearTimeout(waitFlag);
 			if(event.keyCode != 13){
 				waitFlag = setTimeout(function(){
